@@ -4,10 +4,11 @@ import random
 import wget
 import re
 import logging
+import sys
 
 logging.basicConfig(filename="savior.log", level=logging.INFO, format='%(asctime)s  %(name)s  %(levelname)s: %(message)s')
 
-path = '/Users/ilyamirin/Projects/lang_savior/voices/'
+path = sys.argv[0]
 token = '1132212407:AAErGfUDqfnSiZ5Qz_1OVYTqxKfPE6uLmG8' 
 
 sentences = []
