@@ -20,7 +20,7 @@ for txt in ["./voyna-i-mir-tom-1.txt", 'petushki.txt']:
 
     a_list = nltk.tokenize.sent_tokenize(contents)
 
-    i = 1024
+    i = 1024 * 2
     while i > 0:
         line = a_list[random.randint(10, len(a_list)-1)]
         if len(line) <= 255 & len(line) > 29:
