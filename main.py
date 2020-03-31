@@ -34,6 +34,11 @@ for txt in ["voyna-i-mir-tom-1.txt", 'petushki.txt']:
 
 bot = telebot.TeleBot(token)
 
+@bot.message_handler(commands=['start', 'help'])
+def help(message):
+    bot.send_message(message.chat.id, 'В прошлом выжили только те языки, у которых была письменность. Письменность Будущего – это обученный понимать и производить человеческую речь искусственный интеллект. Если ИИ не будет адекватно владеть русским языком, это может поставить его на грань вымирания. Оставим эту фразу двусмысленной. Кухарка должна учиться управлять государством, микроволновка должна учиться языку Пушкина и Жириновского. Мы создаём единственный открытый академический размеченный корпус живой русской речи, которым смогут пользоваться все. И учить любые виды ИИ с его помощью. Чтобы внести свою лепту, используйте команду /add_phrase ')
+
+
 @bot.message_handler(commands=['add_phrase'])
 def add_phrase(message):
     bot.send_message(message.chat.id, 'Дорогой %(username)s, ответь на сообщение голосовым с фразой:' % {"username": message.chat.username})
@@ -57,7 +62,7 @@ def get_audio(message):
 
 @bot.message_handler(content_types=['text'])
 def any_message(message):
-    bot.send_message(message.chat.id, 'Привет! Чтобы спасти русский язык, введи команду /add_phrase')
+    bot.send_message(message.chat.id, 'Привет! Узнать о проекте можно командой /help. Чтобы спасти русский язык, введи команду /add_phrase')
 
 
 bot.polling()
