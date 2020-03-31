@@ -11,6 +11,9 @@ token = '1132212407:AAErGfUDqfnSiZ5Qz_1OVYTqxKfPE6uLmG8'
 
 sentences = []
 
+nltk.download('punkt')
+
+
 for txt in ["./voyna-i-mir-tom-1.txt", 'petushki.txt']:
     f = open(txt, "r")
     if f.mode == 'r':
