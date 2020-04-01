@@ -51,8 +51,12 @@ def get_audio(message):
     if message.reply_to_message:
         f = bot.get_file(message.voice.file_id)
         if message.voice.duration < 30:    
-            wget.download('https://api.telegram.org/file/bot%(token)s/%(file_path)s' % {"token": token, "file_path": f.file_path}, path) 
-            logging.info('User %(username)s File %(file)s -> Phrase %(phrase)s' % {'username': message.from_user.username, 'file': f.file_path, 'phrase': message.reply_to_message.text})
+            try:
+                wget.download('https://api.telegram.org/file/bot%(token)s/%(file_path)s' % {"token": token, "file_path": f.file_path}, path) 
+                logging.info('User %(username)s File %(file)s -> Phrase %(phrase)s' % {'username': message.from_user.username, 'file': f.file_path, 'phrase': message.reply_to_message.text})
+            except Exception as e:
+                logging.error('Error at %(username)s File %(file)s', {'username': message.from_user.username, 'file': f.file_path}, exc_info=e)
+
             bot.send_message(message.chat.id, 'Спасибо! Чтобы спасти живой русский язык, еще разок введи команду /add_phrase')
         else:
             bot.send_message(message.chat.id, 'Ты что то очень долго рассказывал! Давай, чтобы спасти живой русский язык, еще разок введи команду /add_phrase')
