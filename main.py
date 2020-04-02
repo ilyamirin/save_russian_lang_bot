@@ -1,3 +1,7 @@
+
+ #-*- coding: utf-8 -*-
+
+
 import telebot
 import nltk
 import random
@@ -8,15 +12,16 @@ import sys
 
 logging.basicConfig(filename="savior.log", level=logging.INFO, format='%(asctime)s  %(name)s  %(levelname)s: %(message)s')
 
-path = sys.argv[1]
+path = 'E:\\Projects\\save_russian_lang_bot-master'
 token = '1132212407:AAErGfUDqfnSiZ5Qz_1OVYTqxKfPE6uLmG8' 
 
 sentences = []
 
+nltk.set_proxy('https://proxy.dvfu.ru:3128') 
 nltk.download('punkt')
 
-for txt in ["voyna-i-mir-tom-1.txt", 'petushki.txt']:
-    f = open(txt, "r")
+for txt in ["E:\\Projects\\save_russian_lang_bot-master\\books\\voyna-i-mir-tom-1.txt", 'E:\\Projects\\save_russian_lang_bot-master\\books\\petushki.txt']:
+    f = open(txt, "r",encoding = 'utf-8')
     if f.mode == 'r':
         contents = f.read()
 
