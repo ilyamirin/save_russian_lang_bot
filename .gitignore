@@ -2,3 +2,6 @@
 *.txt
 voices/
 nohup*
+venv
+data
+.idea
