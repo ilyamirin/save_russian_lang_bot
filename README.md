@@ -12,11 +12,11 @@ mkdir text_files
 Для gnu/linux есть bash-скрипт deploy.sh,
 вручную:
 ```
-
+cd data
 mkdir voice
 cd ..
 docker build путь-до-папки-проекта -t savior
 docker run --name saviord -d -v путь-до-папки-проекта/data:/data:rw savior
 ```
 ## (Дополнительно) конфигурация скрипта savior.py
-по аргументу -t / --text может принимать список файлов txt для добавления. По умолчанию принимает все.
+по аргументу -t / --text может принимать список файлов txt для добавления. По умолчанию принимает все из папки data/text_files.
